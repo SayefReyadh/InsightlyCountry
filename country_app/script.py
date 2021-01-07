@@ -1,7 +1,9 @@
 from country_app.models import Country
 from .service import country_call
 
-#DEBUG Needed ModuleNotFoundError: No module named 'country_app'
+#DEBUG Needed ModuleNotFoundError: No module named 'country_app' for """from country_app.models import Country"""
+#DEBUG ImportError: attempted relative import with no known parent package for """from .models import Country"""
+
 
 if __name__ == '__main__':
     response = country_call()
