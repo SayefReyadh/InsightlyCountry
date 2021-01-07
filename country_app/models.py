@@ -17,27 +17,32 @@ from django.db import models
 class Country(models.Model):
     id = models.AutoField(primary_key=True)
     alpha2code = models.CharField(max_length=264, unique=True)
-    name = models.CharField(max_length=264, unique=True)
-    capital = models.CharField(max_length=264, unique=True)
-    population = models.BigIntegerField()
-    timezones = models.CharField(max_length=264)
-    language = models.CharField(max_length=264)
-    neighbour = models.CharField(max_length=264)
+    name = models.CharField(max_length=264)
+    capital = models.CharField(max_length=264)
+    population = models.BigIntegerField(blank=True)
+    timezones = models.CharField(max_length=264, blank=True)
+    flag = models.CharField(max_length=264, blank=True)
+    language_list = models.CharField(max_length=264, blank=True)
+    neighbour_list = models.CharField(max_length=264, blank=True)
 
     def __str__(self):
         return self.name
 
 
-class LanguageList(models.Model):
-    topic = models.ForeignKey(Country, on_delete=models.CASCADE)
-    language = models.CharField(max_length=264)
+
+
+#One to Many Relationship Needed
+class Language(models.Model):
+    country_name = models.ForeignKey(Country, on_delete=models.CASCADE)
+    language_name = models.CharField(max_length=264)
 
     def __str__(self):
-        return self.language
+        return self.language_name
 
-
-class NeighbourList(models.Model):
-    neighbour = models.CharField(max_length=264)
+#One to Many Relationship Needed
+class Neighbour(models.Model):
+    country_name = models.ForeignKey(Country, on_delete=models.CASCADE)
+    neighbour_name = models.CharField(max_length=264)
 
     def __str__(self):
-        return set(self.neighbour)
+        return set(self.neighbour_name)
