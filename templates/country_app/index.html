@@ -8,7 +8,7 @@
 
      <table>
           <tr>
-              <th>Alpha 3 Code</th>
+              <th>Alpha 2 Code</th>
               <th>Name</th>
               <th>Capital</th>
               <th>Population</th>
@@ -21,6 +21,7 @@
 
               {% for country in all_country %}
                   <tr>
+                  <td>{{country.alpha2code}}</td>
                   <td>{{country.name}}</td>
                   <td>{{country.capital}}</td>
                   <td>{{country.population}}</td>
