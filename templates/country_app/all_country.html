@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>All Country</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-     <table>
+     <div class="container">
+         <table class="table">
+          <thead class="thead-light">
           <tr>
-              <th>Alpha 2 Code</th>
-              <th>Name</th>
-              <th>Capital</th>
-              <th>Population</th>
-              <th>Timezones</th>
-              <th>Flag</th>
-              <th>Language List</th>
-              <th>Language List</th>
-
+              <th class="active">Flag</th>
+              <th class="active">Alpha 2 Code</th>
+              <th class="active">Name</th>
+              <th class="active">Capital</th>
+{#              <th>Population</th>#}
+              <th class="active">Timezones</th>
+{#              <th>Language List</th>#}
+{#              <th>Language List</th>#}
+              <th class="active">View</th>
+              <th class="active">Delete</th>
           </tr>
+          </thead>
 
               {% for country in all_country %}
                   <tr>
-                  <td>{{country.alpha2code}}</td>
+                  <td> <img src={{country.flag}} width="50" height="30"></td>
+                  <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
                   <td>{{country.name}}</td>
                   <td>{{country.capital}}</td>
-                  <td>{{country.population}}</td>
+{#                  <td>{{country.population}}</td>#}
                   <td>{{country.timezones}}</td>
-                  <td>{{country.flag}}</td>
-                  <td>{{country.language_list}}</td>
-                  <td>{{country.neighbour_list}}</td>
+
+{#                  <td>{{country.language_list}}</td>#}
+{#                  <td>{{country.neighbour_list}}</td>#}
+                  <td><a href= "{{country.alpha2code}}/view">View</a></td>
+                  <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
                   </tr>
 
               {% endfor %}
@@ -36,6 +46,7 @@
 
      </table>
 
+     </div>
 
 
 </body>

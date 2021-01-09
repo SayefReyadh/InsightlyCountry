@@ -7,7 +7,8 @@ from script import bulk_create_all_country
 # Create your views here.
 
 def home(request):
-    return render(request, 'country_app/home.html')
+    all_country_list = {'all_country': Country.objects.all()}
+    return render(request, 'country_app/home.html', context=all_country_list)
 
 
 def index(request):

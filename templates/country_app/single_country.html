@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Single Country</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-     <table>
-          <tr>
-              <th>Alpha 2 Code</th>
-              <th>Name</th>
-              <th>Capital</th>
-              <th>Population</th>
-              <th>Timezones</th>
-              <th>Flag</th>
-              <th>Language List</th>
-              <th>Language List</th>
+     <div class="container">
+          <ul class="list-group">
+          <li class="list-group-item active"><h3>{{individual_country.name}}  <img src={{individual_country.flag}} width="50" height="30"> </h3></li>
+          <li class="list-group-item"> <strong>Alpha2Code</strong> {{individual_country.alpha2code}}</li>
+          <li class="list-group-item"><strong>Population</strong> {{individual_country.population}}</li>
+          <li class="list-group-item"><strong>Timezones</strong> {{individual_country.timezones}}</li>
+          <li class="list-group-item"><strong>Language</strong> {{individual_country.language_list}}</li>
+          <li class="list-group-item"><strong>Neighbour</strong> {{individual_country.neighbour_list}}</li>
+          </ul>
 
-          </tr>
-
-          <tr>
-              <td>{{individual_country.alpha2code}}</td>
-              <td>{{individual_country.name}}</td>
-              <td>{{individual_country.capital}}</td>
-              <td>{{individual_country.population}}</td>
-              <td>{{individual_country.timezones}}</td>
-              <td>{{individual_country.flag}}</td>
-              <td>{{individual_country.language_list}}</td>
-              <td>{{individual_country.neighbour_list}}</td>
-          </tr>
-
-     </table>
+         <br>
+         <br>
+         <img src={{individual_country.flag}} width="1000" height="600">
+     </div>
 
 
 
