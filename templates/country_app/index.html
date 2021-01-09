@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Country</title>
 </head>
 <body>
-    {{ name }}
+
+     <table>
+          <tr>
+              <th>Alpha 3 Code</th>
+              <th>Name</th>
+              <th>Capital</th>
+              <th>Population</th>
+              <th>Timezones</th>
+              <th>Flag</th>
+              <th>Language List</th>
+              <th>Language List</th>
+
+          </tr>
+
+              {% for country in all_country %}
+                  <tr>
+                  <td>{{country.name}}</td>
+                  <td>{{country.capital}}</td>
+                  <td>{{country.population}}</td>
+                  <td>{{country.timezones}}</td>
+                  <td>{{country.flag}}</td>
+                  <td>{{country.language_list}}</td>
+                  <td>{{country.neighbour_list}}</td>
+                  </tr>
+
+              {% endfor %}
+
+
+     </table>
+
+
+
 </body>
 </html>

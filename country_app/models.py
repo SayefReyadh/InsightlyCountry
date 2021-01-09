@@ -29,8 +29,6 @@ class Country(models.Model):
         return self.name
 
 
-
-
 #One to Many Relationship Needed
 class Language(models.Model):
     country_name = models.ForeignKey(Country, on_delete=models.CASCADE)
