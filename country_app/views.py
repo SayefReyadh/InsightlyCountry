@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Country
+from script import bulk_create_all_country
 
 
 # Create your views here.
@@ -11,11 +12,19 @@ def index(request):
 
 
 def get_individual_country(request, a2c):
-    res = Country.objects.filter(alpha2code=a2c)[0]
-    print(res.name , res.population)
-    country = {'individual_country': res}
-    return render(request, 'country_app/get_individual_country.html', context=country)
+    country = Country.objects.filter(alpha2code=a2c)
+    if country:
+        country = {'individual_country': Country.objects.filter(alpha2code=a2c)[0]}
+        return render(request, 'country_app/get_individual_country.html', context=country)
+    else:
+        return HttpResponse("Information of Alpha2Code: " + a2c + " has not been found")
+
+
+def delete_individual_country(request, a2c):
+    Country.objects.filter(alpha2code=a2c).delete()
+    return HttpResponse("Information of Alpha2Code: " + a2c + " has been deleted")
 
 
 def populate_country_data(request):
-    return HttpResponse("Data is fetched and populated by scripts.py")
+    bulk_create_all_country()
+    return HttpResponse("Data is Reset")

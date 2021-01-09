@@ -7,7 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InsightlyCountry.settings')
 django.setup()
 
 
-if __name__ == '__main__':
+def bulk_create_all_country():
     response = country_call()
     bulk = []
     Country.objects.all().delete()
@@ -29,3 +29,7 @@ if __name__ == '__main__':
             )
         )
     Country.objects.bulk_create(bulk)
+
+
+if __name__ == '__main__':
+    bulk_create_all_country()
