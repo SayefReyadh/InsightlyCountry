@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Country</title>
+</head>
+<body>
+    <h2>Enter Country's Information</h2>
+    <form action="success" method="post">
+        {% csrf_token %}
+
+        Alpha2Code  [URY]           <input type="text" name="alpha2code" required> <br>
+        Name        [Uruguay]       <input type="text" name="name" required> <br>
+        Capital     [Montevideo]    <input type="text" name="capitol" required> <br>
+        Population  [3480222]       <input type="text" name="population" required> <br>
+        Timezones   [UTC-03:00]     <input type="text" name="timezones" required> <br>
+        Flag        [URL]           <input type="text" name="flag" required> <br>
+        Language    [Spanish]       <input type="text" name="language" required> <br>
+        Neighbour   [ARG BRA]       <input type="text" name="neighbouring" required> <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
