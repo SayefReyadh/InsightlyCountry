@@ -1,44 +1,61 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>All Country</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-   </head>
-   <body>
-      <div class="container">
-            <a href="/"><h3>Home</h3></a>
-      </div>
-      <div class="container">
-         <table class="table">
-            <thead class="thead-light">
-               <tr>
-                  <th class="active">Flag</th>
-                  <th class="active">Alpha 2 Code</th>
-                  <th class="active">Name</th>
-                  <th class="active">Capital</th>
-                  <th class="active">Timezones</th>
-                  <th class="active">View</th>
-                  <th class="active">Update</th>
-                  <th class="active">Delete</th>
-               </tr>
-            </thead>
-            {% for country in all_country %}
-            <tr>
-               <td> <img src={{country.flag}} width="50" height="30"></td>
-               <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
-               <td>{{country.name}}</td>
-               <td>{{country.capital}}</td>
-               <td>{{country.timezones}}</td>
-               <td><a href= "{{country.alpha2code}}/view">View</a></td>
-               <td><a href= "update/{{country.alpha2code}}">Update</a></td>
-               <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
-            </tr>
-            {% endfor %}
-         </table>
-      </div>
-   </body>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm bg-light">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-link">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <label>Hello, {{ request.user }}</label>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="active">Flag</th>
+                        <th class="active">Alpha 2 Code</th>
+                        <th class="active">Name</th>
+                        <th class="active">Capital</th>
+                        <th class="active">Timezones</th>
+                        <th class="active">View</th>
+                        <th class="active">Update</th>
+                        <th class="active">Delete</th>
+                    </tr>
+                </thead>
+                {% for country in all_country %}
+                <tr>
+                    <td> <img src={{country.flag}} width="50" height="30"></td>
+                    <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
+                    <td>{{country.name}}</td>
+                    <td>{{country.capital}}</td>
+                    <td>{{country.timezones}}</td>
+                    <td><a href= "{{country.alpha2code}}/view">View</a></td>
+                    <td><a href= "update/{{country.alpha2code}}">Update</a></td>
+                    <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
 </html>
 
