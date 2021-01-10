@@ -23,7 +23,6 @@ def register_page(request):
                 form.save()
                 user = request.POST.get('username')
                 passw = request.POST.get('password1')
-                print(user, passw)
                 user = authenticate(request, username=user, password=passw)
                 login(request, user)
                 return redirect('home')
@@ -43,7 +42,6 @@ def login_page(request):
         if request.method == 'POST':
             user = request.POST.get('username')
             passw = request.POST.get('password')
-            print(user, passw)
             user = authenticate(request, username=user, password=passw)
 
             if user is not None:
