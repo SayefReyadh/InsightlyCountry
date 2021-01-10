@@ -18,7 +18,11 @@ After cloning the project in your local directory you have to create a virtual e
 ## Run 
 Open up CMD in the InsightlyCountry project folder. 
 
+- Activate virtual environment [Again if you closed the previous CMD]
+	`insightly\Scripts\activate`
 - Make Migrations
 	`python manage.py migrate`
+- Create a Super Admin
+	`python manage.py createsuperuser`
 - Run the application at http://127.0.0.1:8000/
 	`python manage.py runserver`
