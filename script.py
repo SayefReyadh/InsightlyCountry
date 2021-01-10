@@ -2,15 +2,15 @@ import os
 from country_app.models import Country
 from country_app.service import country_call
 import django
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InsightlyCountry.settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InsightlyCountry.settings')
 django.setup()
 
 
 def bulk_create_all_country():
     response = country_call()
     bulk = []
-    #Country.objects.all().delete()
+    if Country.objects.all():
+        Country.objects.all().delete()
 
     # Double looped used for the same task in script.py and country_app.service.py
     # Improvements needed

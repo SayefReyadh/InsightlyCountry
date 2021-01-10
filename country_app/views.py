@@ -49,6 +49,6 @@ def success(request):
 
 
 def populate_country_data(request):
-    Country.objects.all().delete()
+    # Country.objects.all().delete()
     bulk_create_all_country()
     return HttpResponse("Data is Reset")
