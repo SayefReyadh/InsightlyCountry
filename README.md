@@ -26,3 +26,6 @@ Open up CMD in the InsightlyCountry project folder.
 	`python manage.py createsuperuser`
 - Run the application at http://127.0.0.1:8000/
 	`python manage.py runserver`
+
+#### Basic Instructions
+Initially, the `Login page` will appear. You can login  using the superuser you have created  or you can sign up as a new user using the  `Registration Page`. At the initial phase the  database will be empty. `Load or Reset Database` will help you to Fetch all data from [Country API](https://restcountries.eu/rest/v2/all) and load them in the Sqlite Database. If the database is already populated, it will delete all delete all data and reload all the data again.

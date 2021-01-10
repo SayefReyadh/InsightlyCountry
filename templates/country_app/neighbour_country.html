@@ -40,21 +40,17 @@
                         <th class="active">Name</th>
                         <th class="active">Capital</th>
                         <th class="active">Timezones</th>
-                        <th class="active">View</th>
-                        <th class="active">Update</th>
-                        <th class="active">Delete</th>
+                        <th class="active">Population</th>
                     </tr>
                 </thead>
                 {% for country in all_country %}
                 <tr>
                     <td> <img src={{country.flag}} width="50" height="30"></td>
-                    <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
+                    <td>{{country.alpha2code}}</td>
                     <td>{{country.name}}</td>
                     <td>{{country.capital}}</td>
                     <td>{{country.timezones}}</td>
-                    <td><a href= "{{country.alpha2code}}/view">View</a></td>
-                    <td><a href= "update/{{country.alpha2code}}">Update</a></td>
-                    <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
+                    <td>{{country.population}}</td>
                 </tr>
                 {% endfor %}
             </table>
