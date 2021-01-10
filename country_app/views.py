@@ -77,3 +77,22 @@ def populate_country_data(request):
     # Country.objects.all().delete()
     bulk_create_all_country()
     return redirect('/')
+
+
+@login_required(login_url='login')
+def get_neighbour(request, a2c):
+    country = Country.objects.filter(alpha2code=a2c)
+    if country:
+        n_list = country[0].neighbour_list.split(" ")
+        print(n_list)
+        n_country = []
+        for i in n_list:
+            if len(Country.objects.filter(alpha2code=i)):
+                n_country.append(Country.objects.filter(alpha2code=i)[0])
+            else:
+                break
+        if len(n_country):
+            all_country_list = {'all_country': n_country}
+            return render(request, 'country_app/neighbour_country.html', context=all_country_list)
+        else:
+            return HttpResponse("No Neighbour of Alpha2Code: " + a2c + " has not been found")
