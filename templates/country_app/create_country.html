@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Country</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <h2>Enter Country's Information</h2>
-    <form action="success" method="post">
-        {% csrf_token %}
-
-        Alpha2Code  [URY]           <input type="text" name="alpha2code" required> <br>
-        Name        [Uruguay]       <input type="text" name="name" required> <br>
-        Capital     [Montevideo]    <input type="text" name="capitol" required> <br>
-        Population  [3480222]       <input type="text" name="population" required> <br>
-        Timezones   [UTC-03:00]     <input type="text" name="timezones" required> <br>
-        Flag        [URL]           <input type="text" name="flag" required> <br>
-        Language    [Spanish]       <input type="text" name="language" required> <br>
-        Neighbour   [ARG BRA]       <input type="text" name="neighbouring" required> <br>
-        <input type="submit">
-    </form>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Create Country</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <div class="container">
+         <h2>Enter Country's Information</h2>
+         <form action="success" method="post">
+            <div class="form-group">
+               {% csrf_token %}
+               <label>Alpha2Code [Example: URY]</label>
+               <input type="text" class="form-control" name="alpha2code" required>
+               <label>Name [Example: Uruguay]</label>
+               <input type="text" class="form-control" name="name" required>
+               <label>Capital [Example: Montevideo]</label>
+               <input type="text" class="form-control" name="capitol" required>
+               <label>Population [Example: 3480222]</label>
+               <input type="text" class="form-control" name="population" required>
+               <label>Timezones [Example: UTC-03:00]</label>
+               <input type="text" class="form-control" name="timezones" required>
+               <label>Flag [Example: URL]</label>
+               <input type="text" class="form-control" name="flag" required>
+               <label>Language [Example: Spanish]</label>
+               <input type="text" class="form-control" name="language" required>
+               <label>Neighbour [Example: ARG BRA]</label>
+               <input type="text" class="form-control" name="neighbouring" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+      </div>
+   </body>
 </html>
+

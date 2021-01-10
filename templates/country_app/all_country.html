@@ -1,53 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Country</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-     <div class="container">
+   <head>
+      <meta charset="UTF-8">
+      <title>All Country</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <div class="container">
+            <a href="/"><h3>Home</h3></a>
+      </div>
+      <div class="container">
          <table class="table">
-          <thead class="thead-light">
-          <tr>
-              <th class="active">Flag</th>
-              <th class="active">Alpha 2 Code</th>
-              <th class="active">Name</th>
-              <th class="active">Capital</th>
-{#              <th>Population</th>#}
-              <th class="active">Timezones</th>
-{#              <th>Language List</th>#}
-{#              <th>Language List</th>#}
-              <th class="active">View</th>
-              <th class="active">Delete</th>
-          </tr>
-          </thead>
-
-              {% for country in all_country %}
-                  <tr>
-                  <td> <img src={{country.flag}} width="50" height="30"></td>
-                  <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
-                  <td>{{country.name}}</td>
-                  <td>{{country.capital}}</td>
-{#                  <td>{{country.population}}</td>#}
-                  <td>{{country.timezones}}</td>
-
-{#                  <td>{{country.language_list}}</td>#}
-{#                  <td>{{country.neighbour_list}}</td>#}
-                  <td><a href= "{{country.alpha2code}}/view">View</a></td>
-                  <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
-                  </tr>
-
-              {% endfor %}
-
-
-     </table>
-
-     </div>
-
-
-</body>
+            <thead class="thead-light">
+               <tr>
+                  <th class="active">Flag</th>
+                  <th class="active">Alpha 2 Code</th>
+                  <th class="active">Name</th>
+                  <th class="active">Capital</th>
+                  <th class="active">Timezones</th>
+                  <th class="active">View</th>
+                  <th class="active">Delete</th>
+               </tr>
+            </thead>
+            {% for country in all_country %}
+            <tr>
+               <td> <img src={{country.flag}} width="50" height="30"></td>
+               <td><a href= "{{country.alpha2code}}/view">{{country.alpha2code}}</a></td>
+               <td>{{country.name}}</td>
+               <td>{{country.capital}}</td>
+               <td>{{country.timezones}}</td>
+               <td><a href= "{{country.alpha2code}}/view">View</a></td>
+               <td><a href= "delete/{{country.alpha2code}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+   </body>
 </html>
+
