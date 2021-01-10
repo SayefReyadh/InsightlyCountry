@@ -21,8 +21,14 @@ def register_page(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, "Account Has Been Created")
-                return redirect('login')
+                user = request.POST.get('username')
+                passw = request.POST.get('password1')
+                print(user, passw)
+                user = authenticate(request, username=user, password=passw)
+                login(request, user)
+                return redirect('home')
+                # messages.success(request, "Account Has Been Created")
+                # return redirect('login')
             else:
                 print("Not Valid")
 
