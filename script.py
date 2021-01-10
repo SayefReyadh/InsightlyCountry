@@ -10,7 +10,7 @@ django.setup()
 def bulk_create_all_country():
     response = country_call()
     bulk = []
-    Country.objects.all().delete()
+    #Country.objects.all().delete()
 
     # Double looped used for the same task in script.py and country_app.service.py
     # Improvements needed
