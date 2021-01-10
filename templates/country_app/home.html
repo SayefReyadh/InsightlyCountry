@@ -11,6 +11,8 @@
    <body>
       <div class="container jumbotron">
          <h1>Welcome to the Insightly Country Project</h1>
+          <h3>Hello, {{ request.user }}</h3>
+          <h3><a href="{% url 'logout' %}">Log Out</a></h3>
       </div>
       <div class="container">
          <h2><a href="country">List of Countries</a></h2>

@@ -1,8 +1,9 @@
 import os
 from country_app.models import Country
 from country_app.service import country_call
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InsightlyCountry.settings')
 import django
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InsightlyCountry.settings')
 django.setup()
 
 
@@ -32,4 +33,5 @@ def bulk_create_all_country():
 
 
 if __name__ == '__main__':
+    # settings.configure()
     bulk_create_all_country()
